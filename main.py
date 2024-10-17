@@ -6,7 +6,7 @@ print("Rules: You have to guess a random number from 1 to 100")
 number = random.randint(1,100)
 
 diff_mes = "1.Easy (10 chances); 2.Normal (5 chances); 3.Hard (3 chances)"
-diff = input(f"{diff_mes}\nChoose difficulty: ")
+diff = int(input(f"{diff_mes}\nChoose difficulty: "))
 if diff == 1:
     print("You have 10 chances!")
 elif diff == 2:
