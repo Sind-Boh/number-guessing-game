@@ -42,26 +42,40 @@ def game():
             if guess > 100:
                 print("Remember the rules! Enter number between 1 & 100!")
             else:
-                if guess == number:
-                    print("Congrats!")
-                    break
-                elif guess > number:
-                    guess_num += 1
-                    print(f"Number is smaller than {guess}!")
-                elif guess < number:
-                    guess_num += 1
-                    print(f"Number is bigger than {guess}!")
+                if guess_num == (guess_num_max - 2):
+                    if guess > number:
+                        print(f"Number is smaller than {guess}!")
+                    elif guess < number:
+                        print(f"Number is bigger than {guess}!")
+                    ch_hint = input("Do you want a hint? [y/n]: ")
+                    if ch_hint.lower() == "y":
+                        print("Here is your hint:\nYour number is lower than",
+                              number + random.randint(1,5), 
+                              "and bigger than", number - random.randint(1,5))
+                        guess_num += 1
+                    elif ch_hint.lower() == "n":
+                        guess_num += 1
+                        continue
+                else: 
+                    if guess == number:
+                        print("Congrats!")
+                        break
+                    elif guess > number:
+                        guess_num += 1
+                        print(f"Number is smaller than {guess}!")
+                    elif guess < number:
+                        guess_num += 1
+                        print(f"Number is bigger than {guess}!")
         else:
-            print("You lost!")
+            print(f"You lost! Answer: {number}")
             break
 
+game()
 while True:
-    game()
-    cont = input("Do you wanna play again? [y/n]: \n")
+    cont = input("Do you wanna play again? [y/n]: ")
     if cont.lower() == "y":
         game()
-    if cont.lower() == "n":
+    elif cont.lower() == "n":
         break
     else:
         print("Try again!")
-        cont = input("Do you wanna play again? [y/n]: ")
