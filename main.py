@@ -33,8 +33,8 @@ def game():
     else:
         guess_num_max = 3
 
-    print(number)
-    print(guess_num_max)
+#    print(number)
+#    print(guess_num_max)
 
     while True:
         if guess_num < guess_num_max:
