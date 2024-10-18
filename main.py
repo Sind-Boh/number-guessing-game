@@ -1,6 +1,6 @@
 import random
 import time
-
+# First project
 def welcome():
     print("\nHello! This is Number Guessing Game!")
     print("Rules: You have to guess a random number from 1 to 100\n")

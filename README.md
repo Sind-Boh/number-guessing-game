@@ -6,6 +6,8 @@ CLI-based game, where you can try to guess random number from 1 to 100.
   <li>There are 3 difficulty levels: easy, normal and hard</li>
   <li>There are two types of hints: small hint after each guess that tells prayer eather his guess is higher or lowel than random number; and final hint before last try that tells player boundaries of random number (+-5)</li>
   <li>Game can be played multiple times</li>
+  <li>Timer tells how quickly player guessed correct number</li>
+  <li>Records show the shortest time for each difficulty</li>
 </ul>
 Sample solution for project "Number Guessing Game" provided by Roadmap.sh:
 
@@ -33,6 +35,6 @@ python main.py
 - After that by entering "y" or "n" you can choose "Do you wanna play again?"
 
 ## Technical detailes
-Game build using Python and Random library
+Game build using Python incuding random and time libraries
 ## Requirements
 Python 3.12 or higher
