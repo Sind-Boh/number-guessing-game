@@ -1,43 +1,50 @@
 import random
 import time
-# First project
+
 def welcome():
     print("\nHello! This is Number Guessing Game!")
     print("Rules: You have to guess a random number from 1 to 100\n")
 
 def diff():
     diff_mes = "1.Easy (10 chances); 2.Normal (5 chances); 3.Hard (3 chances)"
-    diff = int(input(f"{diff_mes}\nChoose difficulty: "))
     while True:
-        if diff > 3:
-            print("Try again! Enter 1, 2 or 3")
+        try:
             diff = int(input(f"{diff_mes}\nChoose difficulty: "))
-        else:
-            if diff == 1:
-                print("You have 10 chances!\n")
-                break
-            elif diff == 2:
-                print("You have 5 chances!\n")
-                break
-            elif diff == 3:
-                print("You have 3 chances!\n")
-                break
-    guess_num_max = 0
+            if diff > 3:
+                print("Try again, enter 1, 2 or 3:")
+                continue
+            break
+        except ValueError:
+            print("Try again! Enter 1, 2 or 3")
+            continue
+
     if diff == 1:
+        print("You have 10 chances!\n")
         guess_num_max = 10
     elif diff == 2:
+        print("You have 5 chances!\n")
         guess_num_max = 5
-    else:
+    elif diff == 3:
+        print("You have 3 chances!\n")
         guess_num_max = 3
     return guess_num_max
+
+def us_in():
+    while True:
+        try:
+            guess = int(input("Enter your guess: "))
+            return guess
+        except ValueError:                
+            print("You should enter number, not text! Try again!")
+            continue
 
 def game(guess_num_max, number):
     start = time.time()
     guess_num = 0
     while True:
         if guess_num < guess_num_max:
-            guess = int(input("Enter your guess: "))
-            if guess > 100:
+            guess = us_in()
+            if guess > 100 or guess < 1:
                 print("Remember the rules! Enter number between 1 & 100!")
             else:
                 if guess_num == (guess_num_max - 2):
@@ -102,6 +109,7 @@ def contin():
             break
         else:
             print("Try again!")
+
 recs = {}
 welcome()
 main()
